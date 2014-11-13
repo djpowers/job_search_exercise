@@ -1,8 +1,4 @@
 <% @jobs.each do |job| %>
-  <div class="job">
-    <%= job["title"] %></br>
-    <%= "#{job["company"]} - #{job["city"]}, #{job["state"]}" %></br>
-    <%= "#{Time.at(job["posted"]).strftime("%b %e, %Y")} - #{job["body"]}" %></br>
-  </div>
+  <%= render "job_result", job: job %>
   </br>
 <% end %>
