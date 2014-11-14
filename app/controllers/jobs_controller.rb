@@ -3,7 +3,7 @@ class JobsController < ApplicationController
     @jobs = call_jobs_api
     @jobs.sort! { |x,y| y["posted"] <=> x["posted"] }
 
-    unless params[:keywords].empty?
+    if params[:keywords].try(:present?)
       @jobs.select! { |job| job["keywords"].include?(params[:keywords].downcase) }
     end
   end
