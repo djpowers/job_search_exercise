@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
   def index
     @jobs = call_jobs_api
-    @jobs.sort! { |x,y| y["posted"] <=> x["posted"] }
+    @jobs.sort_by! { |job| job["posted"] }.reverse!
 
     if params[:keywords].try(:present?)
       @jobs.select! { |job| job["keywords"].include?(params[:keywords].downcase) }
