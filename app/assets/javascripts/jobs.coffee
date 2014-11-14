@@ -1,5 +1,5 @@
 ready = ->
-  $('a').click (e) ->
+  $('#results a').click (e) ->
     window.open $(this).attr('href'), 'Popup', 'height=750,width=1000'
     e.preventDefault()
 

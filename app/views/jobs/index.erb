@@ -2,7 +2,9 @@
   <%= text_field_tag :keywords, params[:keywords], placeholder: 'Keywords' %>
   <%= submit_tag "Search" %>
 <% end %>
-<% @jobs.each do |job| %>
-  <%= render "job_result", job: job %>
-  </br>
-<% end %>
+<div id="results">
+  <% @jobs.each do |job| %>
+    <%= render "job_result", job: job %>
+    </br>
+  <% end %>
+</div>
