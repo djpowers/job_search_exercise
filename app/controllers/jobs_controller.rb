@@ -4,7 +4,7 @@ class JobsController < ApplicationController
     @jobs.sort! { |x,y| y["posted"] <=> x["posted"] }
 
     unless params[:keywords].empty?
-      @jobs.select! { |job| job["keywords"].include?(params[:keywords]) }
+      @jobs.select! { |job| job["keywords"].include?(params[:keywords].downcase) }
     end
   end
 
