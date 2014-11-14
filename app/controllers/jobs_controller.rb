@@ -2,6 +2,10 @@ class JobsController < ApplicationController
   def index
     @jobs = call_jobs_api
     @jobs.sort! { |x,y| y["posted"] <=> x["posted"] }
+
+    unless params[:keywords].empty?
+      @jobs.select! { |job| job["keywords"].include?(params[:keywords]) }
+    end
   end
 
   def show
