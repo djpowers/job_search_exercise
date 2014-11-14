@@ -1,5 +1,5 @@
 <div class="job">
-  <%= job["title"] %></br>
+  <%= link_to job["title"], job_path(job["id"]) %></br>
   <%= "#{job["company"]} - #{job["city"]}, #{job["state"]}" %></br>
   <%= "#{Time.at(job["posted"]).strftime("%b %e, %Y")} - #{job["body"]}" %></br>
 </div>
