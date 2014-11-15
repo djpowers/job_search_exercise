@@ -1,4 +1,7 @@
 class JobsController < ApplicationController
+
+  before_action :authorize, only: [:new, :create]
+
   def index
     @jobs = call_jobs_api
     @jobs.sort_by! { |job| job["posted"] }.reverse!
