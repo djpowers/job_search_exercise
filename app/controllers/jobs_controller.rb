@@ -15,33 +15,14 @@ class JobsController < ApplicationController
     jobs = call_jobs_api
     @job = jobs[params[:id].to_i - 1]
 
-    uri = URI.parse("http://localhost:4000/events")
-    Net::HTTP.post_form(uri,
-      {
-        "job_id" => @job["id"].to_i,
-        "clicked" => Time.now.to_i,
-        "user_id" => current_user.try(:id)
-      }
-    )
+    post_events_api(@job)
   end
 
   def new
   end
 
   def create
-    uri = URI.parse("http://localhost:4000/jobs")
-    response = Net::HTTP.post_form(uri,
-      {
-        "posted" => Time.now.to_i,
-        "company" => params[:job][:company],
-        "poster" => current_user.email,
-        "city" => params[:job][:city],
-        "state" => params[:job][:state],
-        "title" => params[:job][:title],
-        "body" => params[:job][:body],
-        "keywords" => params[:job][:keywords]
-      }
-    )
+    response = post_jobs_api(params[:job])
 
     if response.code == "200"
       redirect_to jobs_path
@@ -56,5 +37,32 @@ class JobsController < ApplicationController
     uri = URI.parse("http://localhost:4000/jobs")
     response = Net::HTTP.get_response(uri)
     JSON.parse(response.body)
+  end
+
+  def post_events_api(job)
+    uri = URI.parse("http://localhost:4000/events")
+    Net::HTTP.post_form(uri,
+      {
+        "job_id" => job["id"].to_i,
+        "clicked" => Time.now.to_i,
+        "user_id" => current_user.try(:id)
+      }
+    )
+  end
+
+  def post_jobs_api(job_params)
+    uri = URI.parse("http://localhost:4000/jobs")
+    Net::HTTP.post_form(uri,
+      {
+        "posted" => Time.now.to_i,
+        "company" => job_params[:company],
+        "poster" => current_user.email,
+        "city" => job_params[:city],
+        "state" => job_params[:state],
+        "title" => job_params[:title],
+        "body" => job_params[:body],
+        "keywords" => job_params[:keywords]
+      }
+    )
   end
 end
