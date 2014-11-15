@@ -1,0 +1,15 @@
+<%= form_for :job, url: jobs_path do |f| %>
+  <%= f.label :company %>
+  <%= f.text_field :company %><br />
+  <%= f.label :city %>
+  <%= f.text_field :city %><br />
+  <%= f.label :state %>
+  <%= f.text_field :state %><br />
+  <%= f.label :title %>
+  <%= f.text_field :title %><br />
+  <%= f.label :body %>
+  <%= f.text_field :body %><br />
+  <%= f.label :keywords %>
+  <%= f.text_field :keywords %><br />
+  <%= f.submit %>
+<% end %>
