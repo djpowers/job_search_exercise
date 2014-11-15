@@ -11,6 +11,15 @@ class JobsController < ApplicationController
   def show
     jobs = call_jobs_api
     @job = jobs[params[:id].to_i - 1]
+
+    uri = URI.parse("http://localhost:4000/events")
+    Net::HTTP.post_form(uri,
+      {
+        "job_id" => @job["id"].to_i,
+        "clicked" => Time.now.to_i,
+        "user_id" => current_user.try(:id)
+      }
+    )
   end
 
   private
