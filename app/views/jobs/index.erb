@@ -4,7 +4,7 @@
     <%= text_field_tag :keywords, params[:keywords], placeholder: 'Keywords' %>
     <%= submit_tag "Search" %>
   <% end %>
-  <div id="logIn post">
+  <div id="userActions">
     <% if current_user %>
       <%= link_to 'Post Job', new_job_path %>
     <% else %>
