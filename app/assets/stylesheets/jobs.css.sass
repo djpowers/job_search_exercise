@@ -1,11 +1,18 @@
 $primary-color: #00597b
 $hover-color: #00222f
 
+body
+  font-family: "HelveticaNeue"
+  margin: 0
+  padding: 0
+
 header
   background: $primary-color
+  margin-top: -20px
   h2
     color: white
     display: inline-block
+    margin-left: 10px
   a
     color: white
   form
@@ -14,6 +21,12 @@ header
       background-image: linear-gradient(to bottom, #92c664 0%, #73ad40 100%)
   #userActions
     display: inline-block
+    float: right
+    margin-top: 20px
+    margin-right: 10px
+
+h1
+  color: $primary-color
 
 .job-subtitle
   color: #92c664
@@ -21,10 +34,11 @@ header
 .job-posted
   color: #999999
 
-a
-  color: $primary-color
-a:hover
-  color: $hover-color
+#results
+  a
+    color: $primary-color
+  a:hover
+    color: $hover-color
 
 .digg_pagination
   background: white
