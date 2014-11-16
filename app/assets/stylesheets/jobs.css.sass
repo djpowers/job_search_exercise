@@ -1,6 +1,27 @@
-// Place all the styles related to the jobs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$primary-color: #00597b
+$hover-color: #00222f
+
+header
+  background: $primary-color
+  h2
+    color: white
+  a
+    color: white
+
+.job-subtitle
+  color: #92c664
+
+.job-posted
+  color: #999999
+
+a
+  color: $primary-color
+a:hover
+  color: $hover-color
+
+form input[type="submit"]
+  background-image: linear-gradient(to bottom, #92c664 0%, #73ad40 100%)
+
 .digg_pagination
   background: white
   cursor: default
@@ -15,18 +36,18 @@
   .current
     font-style: normal
     font-weight: bold
-    background: #2e6ab1
+    background: $primary-color
     color: white
-    border: 1px solid #2e6ab1
+    border: 1px solid $primary-color
   a
     text-decoration: none
-    color: #105cb6
+    color: $primary-color
     border: 1px solid #9aafe5
     &:hover, &:focus
-      color: #000033
-      border-color: #000033
+      color: $hover-color
+      border-color: $hover-color
   .page_info
-    background: #2e6ab1
+    background: $primary-color
     color: white
     padding: 0.4em 0.6em
     width: 22em
@@ -34,7 +55,7 @@
     text-align: center
     b
       color: #000033
-      background: #2e6ab1 + 60
+      background: $primary-color + 60
       padding: 0.1em 0.25em
   /* self-clearing method:
   &:after

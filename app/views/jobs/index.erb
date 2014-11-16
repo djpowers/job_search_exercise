@@ -1,12 +1,19 @@
-<%= form_tag(jobs_path, method: 'GET', id: 'search-form') do %>
-  <%= text_field_tag :keywords, params[:keywords], placeholder: 'Keywords' %>
-  <%= submit_tag "Search" %>
-<% end %>
-<% if current_user %>
-  <%= link_to 'Post Job', new_job_path %>
-<% else %>
-  <%= link_to 'Log In', new_user_session_path %>
-<% end %>
+<header>
+  <h2>JobSearcher</h2>
+  <%= form_tag(jobs_path, method: 'GET', id: 'search-form') do %>
+    <%= text_field_tag :keywords, params[:keywords], placeholder: 'Keywords' %>
+    <%= submit_tag "Search" %>
+  <% end %>
+  <div id="logIn post">
+    <% if current_user %>
+      <%= link_to 'Post Job', new_job_path %>
+    <% else %>
+      <%= link_to 'Log In', new_user_session_path %>
+    <% end %>
+  </div>
+</header>
+
+<h1>Welcome to JobSearcher!</h1>
 <div id="results">
   <% @jobs.each do |job| %>
     <%= render "job_result", job: job %>
