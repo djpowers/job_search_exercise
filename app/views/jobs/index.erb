@@ -13,4 +13,6 @@
     </br>
   <% end %>
 </div>
-<%= will_paginate @jobs %>
+<div class="digg_pagination">
+  <%= will_paginate @jobs, previous_label: "«", next_label: "»" %>
+</div>
