@@ -3,8 +3,9 @@ class JobsController < ApplicationController
   before_action :authorize, only: [:new, :create]
 
   def index
-    @jobs = call_jobs_api
-    @jobs.sort_by! { |job| job["posted"] }.reverse!
+    jobs = call_jobs_api
+    jobs.sort_by! { |job| job["posted"] }.reverse!
+    @jobs = jobs.paginate(page: params[:page], per_page: 10)
 
     if params[:keywords].try(:present?)
       @jobs.select! { |job| job["keywords"].include?(params[:keywords].downcase) }
