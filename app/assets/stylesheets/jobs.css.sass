@@ -1,5 +1,6 @@
 $primary-color: #00597b
 $hover-color: #00222f
+$margin-left: 40px
 
 body
   font-family: "HelveticaNeue"
@@ -20,7 +21,7 @@ header
     background-color: $primary-color
   form
     display: inline-block
-    margin-left: 20px
+    margin-left: $margin-left
     margin-bottom: 10px
     input
       height: 34px
@@ -28,11 +29,11 @@ header
     input[type="text"]
       border-radius: 4px
       width: 272px
+      margin-right: 10px
     input[type="submit"]
       border-radius: 4px
       background-image: linear-gradient(to bottom, #92c664 0%, #73ad40 100%)
       color: white
-      margin-left: 10px
   #userActions
     display: inline-block
     float: right
@@ -40,7 +41,8 @@ header
     margin-right: 10px
 
 #welcome
-  margin: 20px
+  margin-left: $margin-left
+  margin-bottom: 20px
   h1
     color: $primary-color
 
@@ -51,14 +53,14 @@ header
   color: #999999
 
 #results
-  margin: 20px
+  margin-left: $margin-left
   a
     color: $primary-color
   a:hover
     color: $hover-color
 
 .digg_pagination
-  margin-left: 20px
+  margin-left: $margin-left
   background: white
   cursor: default
   a, span, em
