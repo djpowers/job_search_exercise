@@ -1,5 +1,5 @@
 <header>
-  <h2>JobSearcher</h2>
+  <h2><span>Job</span>Searcher</h2>
   <%= form_tag(jobs_path, method: 'GET', id: 'search-form') do %>
     <%= text_field_tag :keywords, params[:keywords], placeholder: 'Keywords' %>
     <%= submit_tag "Search" %>
