@@ -13,7 +13,10 @@
   </div>
 </header>
 
-<h1>Welcome to JobSearcher!</h1>
+<div id="welcome">
+  <h1>Welcome to JobSearcher!</h1>
+  <strong><%= pluralize(@jobs_count, 'job') %> found</strong>
+</div>
 <div id="results">
   <% @jobs.each do |job| %>
     <%= render "job_result", job: job %>
