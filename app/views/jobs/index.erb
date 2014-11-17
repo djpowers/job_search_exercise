@@ -1,5 +1,7 @@
 <header>
-  <h2><span>Job</span>Searcher</h2>
+  <%= link_to root_path do %>
+    <h2><span>Job</span>Searcher</h2>
+  <% end %>
   <%= form_tag(jobs_path, method: 'GET', id: 'search-form') do %>
     <%= text_field_tag :keywords, params[:keywords], placeholder: 'Keywords' %>
     <%= text_field_tag :location, params[:location], placeholder: 'Location' %>
