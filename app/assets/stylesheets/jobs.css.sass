@@ -19,26 +19,28 @@ header
   a
     color: white
     background-color: $primary-color
-  form
-    display: inline-block
-    margin-left: $margin-left
-    margin-bottom: 10px
-    input
-      height: 34px
-      font-size: 16px
-    input[type="text"]
-      border-radius: 4px
-      width: 272px
-      margin-right: 10px
-    input[type="submit"]
-      border-radius: 4px
-      background-image: linear-gradient(to bottom, #92c664 0%, #73ad40 100%)
-      color: white
-  #userActions
-    display: inline-block
-    float: right
-    margin-top: 20px
+form
+  display: inline-block
+  margin-left: $margin-left
+  margin-bottom: 10px
+  input[type="text"]
+    border-radius: 4px
+    width: 272px
     margin-right: 10px
+#userActions
+  display: inline-block
+  float: right
+  margin-top: 20px
+  margin-right: 10px
+
+input
+  height: 34px
+  font-size: 16px
+
+input[type="submit"]
+  border-radius: 4px
+  background-image: linear-gradient(to bottom, #92c664 0%, #73ad40 100%)
+  color: white
 
 #welcome
   margin-left: $margin-left
@@ -58,6 +60,10 @@ header
     color: $primary-color
   a:hover
     color: $hover-color
+
+#newPost
+  text-align: center
+  color: $primary-color
 
 .digg_pagination
   margin-left: $margin-left
