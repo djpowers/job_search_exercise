@@ -8,7 +8,8 @@ class JobsController < ApplicationController
     @jobs = jobs.paginate(page: params[:page], per_page: 10)
 
     if params[:keywords].try(:present?)
-      @jobs.select! { |job| job["keywords"].include?(params[:keywords].downcase) }
+      jobs.select! { |job| job["keywords"].include?(params[:keywords].downcase) }
+      @jobs = jobs.paginate(page: params[:page], per_page: 10)
     end
   end
 
