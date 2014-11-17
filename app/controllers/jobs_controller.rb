@@ -5,14 +5,20 @@ class JobsController < ApplicationController
   def index
     jobs = call_jobs_api
     jobs.sort_by! { |job| job["posted"] }.reverse!
-    @jobs_count = jobs.count
-    @jobs = jobs.paginate(page: params[:page], per_page: 10)
 
     if params[:keywords].try(:present?)
       jobs.select! { |job| job["keywords"].include?(params[:keywords].downcase) }
-      @jobs_count = jobs.count
-      @jobs = jobs.paginate(page: params[:page], per_page: 10)
     end
+
+    if params[:location].try(:present?)
+      collected = []
+      collected << jobs.select { |job| job["city"].include?(params[:location].titleize) }
+      collected << jobs.select { |job| job["state"].include?(params[:location].upcase) }
+      jobs = collected.flatten
+    end
+
+    @jobs_count = jobs.count
+    @jobs = jobs.paginate(page: params[:page], per_page: 10)
   end
 
   def show

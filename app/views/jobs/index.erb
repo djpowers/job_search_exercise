@@ -2,6 +2,7 @@
   <h2><span>Job</span>Searcher</h2>
   <%= form_tag(jobs_path, method: 'GET', id: 'search-form') do %>
     <%= text_field_tag :keywords, params[:keywords], placeholder: 'Keywords' %>
+    <%= text_field_tag :location, params[:location], placeholder: 'Location' %>
     <%= submit_tag "Search" %>
   <% end %>
   <div id="userActions">
